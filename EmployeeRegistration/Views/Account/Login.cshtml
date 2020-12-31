@@ -1,0 +1,53 @@
+﻿@model LoginViewModel
+@{
+    ViewBag.Title = "User Login";
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="@Url.Content("~/Content/themes/base/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container register">
+        <form asp-controller="Account" asp-action="Login" method="post">
+            <div asp-vlidation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group">
+                    <h3 class="register-heading" style="color: white;" >User Login</h3>
+                </div>
+                <div class="col-md-9 register-right">
+                    <div class="row register-form">
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label asp-for="Email">Email</label>
+                                <input asp-for="Email" type="email" class="form-control" placeholder="Your Email *" value="">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password">Password</label>
+                                <input asp-for="Password" type="text" class="form-control" placeholder="Password *" value="">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Rememberme">
+
+                                    <input asp-for="Rememberme" type="checkbox" />
+                                    @Html.DisplayNameFor(m => m.Rememberme)
+                                </label>
+
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</form>
+        </div>
+</body>
+</html>
